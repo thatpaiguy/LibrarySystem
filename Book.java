@@ -1,16 +1,16 @@
 public class Book {
-    private String id;
+    private int id;
     private String title;
-    private String year;
+    private int year;
     private String genre;
     private String ISBN;
     private String publisher;
     private String author;
-    private String numCopies;
-    private String newArrival;
+    private int numCopies;
+    private boolean newArrival;
 
-    public Book(String id, String title, String year, String genre, String ISBN,
-    String publisher, String author, String numCopies, String newArrival) {
+    public Book(int id, String title, int year, String genre, String ISBN,
+    String publisher, String author, int numCopies, boolean newArrival) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -22,11 +22,11 @@ public class Book {
         this.newArrival = newArrival;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,11 +38,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -78,19 +78,19 @@ public class Book {
         this.author = author;
     }
 
-    public String getNumCopies() {
+    public int getNumCopies() {
         return numCopies;
     }
 
-    public void setNumCopies(String numCopies) {
+    public void setNumCopies(int numCopies) {
         this.numCopies = numCopies;
     }
 
-    public String getNewArrival() {
+    public boolean getNewArrival() {
         return newArrival;
     }
 
-    public void setNewArrival(String newArrival) {
+    public void setNewArrival(boolean newArrival) {
         this.newArrival = newArrival;
     }
 }
