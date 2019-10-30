@@ -20,15 +20,15 @@ public class JSONParse {
 
                 for(int i = 0; i < booksJSON.size(); i++) {
                     JSONObject bookJSON = (JSONObject)booksJSON.get(i);
-                    String id = (String)bookJSON.get("id");
+                    int id = (int)bookJSON.get("id");
                     String title = (String)bookJSON.get("title");
-                    String year = (String)bookJSON.get("year");
+                    int year = (int)bookJSON.get("year");
                     String genre = (String)bookJSON.get("genre");
                     String ISBN = (String)bookJSON.get("ISBN");
                     String publisher = (String)bookJSON.get("publisher");
                     String author = (String)bookJSON.get("author");
-                    String numCopies = (String)bookJSON.get("numCopies");
-                    String newArrival = (String)bookJSON.get("newArrival");
+                    int numCopies = (int)bookJSON.get("numCopies");
+                    boolean newArrival = (boolean)bookJSON.get("newArrival");
 
 
                     books.add(new Book(id, title, year, genre, ISBN, publisher,
