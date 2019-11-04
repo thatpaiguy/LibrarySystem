@@ -16,7 +16,7 @@ public class Book extends Item{
      * @param publisher
      * @param author
      */
-    public Book(int id, String title,int year, String genre, int numCopies, boolean newArrival,
+    public Book(long id, String title,long year, String genre, long numCopies, boolean newArrival,
                 boolean isCheckedOut , String ISBN, String publisher, String author) {
         super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
         this.setISBN(ISBN);

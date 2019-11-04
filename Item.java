@@ -1,10 +1,10 @@
 public class Item {
 
-    public int id;
+    public long id;
     public String title;
-    public int year;
+    public long year;
     public String genre;
-    public int numCopies;
+    public long numCopies;
     public boolean newArrival;
     public boolean isCheckedOut;
 
@@ -31,7 +31,7 @@ public class Item {
      * @param newArrival
      * @param isCheckedOut
      */
-    public Item(int id, String title, int year, String genre, int numCopies, boolean newArrival, boolean isCheckedOut) {
+    public Item(long id, String title, long year, String genre, long numCopies, boolean newArrival, boolean isCheckedOut) {
         this.setId(id);
         this.setTitle(title);
         this.setYear(year);
@@ -45,11 +45,11 @@ public class Item {
      * Getters and Setters
      * @return
      */
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,11 +61,11 @@ public class Item {
         this.title = title;
     }
 
-    public int getYear() {
+    public long getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(long year) {
         this.year = year;
     }
 
@@ -77,11 +77,11 @@ public class Item {
         this.genre = genre;
     }
 
-    public int getNumCopies() {
+    public long getNumCopies() {
         return numCopies;
     }
 
-    public void setNumCopies(int numCopies) {
+    public void setNumCopies(long numCopies) {
         this.numCopies = numCopies;
     }
 
