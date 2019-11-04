@@ -8,7 +8,9 @@ public class Item {
     public boolean newArrival;
     public boolean isCheckedOut;
 
-
+    /**
+     * Default constructor
+     */
     public Item() {
         this.id = 0;
         this.title = "none";
@@ -19,6 +21,16 @@ public class Item {
         this.isCheckedOut = false;
     }
 
+    /**
+     * parameterized constructor
+     * @param id
+     * @param title
+     * @param year
+     * @param genre
+     * @param numCopies
+     * @param newArrival
+     * @param isCheckedOut
+     */
     public Item(int id, String title, int year, String genre, int numCopies, boolean newArrival, boolean isCheckedOut) {
         this.setId(id);
         this.setTitle(title);
@@ -29,6 +41,10 @@ public class Item {
         this.setCheckedOut(isCheckedOut);
     }
 
+    /**
+     * Getters and Setters
+     * @return
+     */
     public int getId() {
         return id;
     }

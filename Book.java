@@ -1,59 +1,34 @@
-public class Book {
-    private int id;
-    private String title;
-    private int year;
-    private String genre;
+public class Book extends Item{
     private String ISBN;
     private String publisher;
     private String author;
-    private int numCopies;
-    private boolean newArrival;
 
-    public Book(int id, String title, int year, String genre, String ISBN,
-    String publisher, String author, int numCopies, boolean newArrival) {
-        this.id = id;
-        this.title = title;
-        this.year = year;
-        this.genre = genre;
-        this.ISBN = ISBN;
-        this.publisher = publisher;
-        this.author = author;
-        this.numCopies = numCopies;
-        this.newArrival = newArrival;
+    /**
+     * Parameterized Constructors
+     * @param id
+     * @param title
+     * @param year
+     * @param genre
+     * @param numCopies
+     * @param newArrival
+     * @param isCheckedOut
+     * @param ISBN
+     * @param publisher
+     * @param author
+     */
+    public Book(int id, String title,int year, String genre, int numCopies, boolean newArrival,
+                boolean isCheckedOut , String ISBN, String publisher, String author) {
+        super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
+        this.setISBN(ISBN);
+        this.setPublisher(publisher);
+        this.setAuthor(author);
+
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
+    /**
+     * Getters and Setters
+     * @return
+     */
     public String getISBN() {
         return ISBN;
     }
@@ -76,21 +51,5 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public int getNumCopies() {
-        return numCopies;
-    }
-
-    public void setNumCopies(int numCopies) {
-        this.numCopies = numCopies;
-    }
-
-    public boolean getNewArrival() {
-        return newArrival;
-    }
-
-    public void setNewArrival(boolean newArrival) {
-        this.newArrival = newArrival;
     }
 }
