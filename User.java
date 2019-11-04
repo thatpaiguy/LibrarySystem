@@ -3,14 +3,14 @@ public class User {
     private String password;
     private int age;
     private String address;
-    private int phoneNumb;
+    private long phoneNumb;
     private boolean isChild; //check to see if User is child or adult
     /**
      * Parameterized constructor
      * Not included: default constructor since creating a default user will not be needed
      * no setter for username because the check for this is in the database add method
      */
-    public User(String userName, String password, int age, String address, int phoneNumb){
+    public User(String userName, String password, int age, String address, long phoneNumb){
         this.username=userName;
         this.setPassword(password);
         this.setAge(age);
@@ -32,7 +32,7 @@ public class User {
     public String getAddress() {
         return address;
     }
-    public int getPhoneNumb() {
+    public long getPhoneNumb() {
         return phoneNumb;
     }
     public boolean childCheck(){
@@ -91,13 +91,20 @@ public class User {
 
     /**
      * Setter for phone number
-     * type-casted int to String to make it easier to check the length
+     * type-casted long to String to make it easier to check the length
      */
-    public void setPhoneNumb(int phoneNumb) {
-        if(Integer.toString(phoneNumb).length() < 0 || Integer.toString(phoneNumb).length() > 10){ //converts int to string to check if length of phone number is valid
+    public void setPhoneNumb(long number) {
+        if(Long.toString(number).length() > 0 && Long.toString(number).length() < 10){
             System.out.println("This is not a valid phone number");
             return;
         }
-        this.phoneNumb = phoneNumb;
+        this.phoneNumb = number;
+    }
+
+    /**
+     * toString method for every attribute in User
+     */
+    public String toString(){
+        return "Username: " + username + "\nPassword: " + password + "\nAge: " + age + "\nAddress: " + address +"\nPhone Number: " + phoneNumb+ "\nChild?: " + isChild;
     }
 }
