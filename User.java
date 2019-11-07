@@ -1,21 +1,24 @@
-public class User {
-    private String username;
-    private String password;
-    private int age;
-    private String address;
-    private long phoneNumb;
-    private boolean isChild; //check to see if User is child or adult
+public abstract class User{
+    protected String username;
+    protected String password;
+    protected int age;
+    protected String address;
+    protected String phoneNumb;
+    protected Item[] items;
+    protected double balance;
     /**
      * Parameterized constructor
      * Not included: default constructor since creating a default user will not be needed
      * no setter for username because the check for this is in the database add method
+     * if User is a teacher, they are allowed 15 items, if not, they are allowed 10
      */
-    public User(String userName, String password, int age, String address, long phoneNumb){
+    public User(String userName, String password, int age, String address, String phoneNumb){
         this.username=userName;
         this.setPassword(password);
         this.setAge(age);
         this.setAddress(address);
         this.setPhoneNumb(phoneNumb);
+        balance =0;
     }
     /**
      * Getters
@@ -32,13 +35,10 @@ public class User {
     public String getAddress() {
         return address;
     }
-    public long getPhoneNumb() {
+    public String getPhoneNumb() {
         return phoneNumb;
     }
-    public boolean childCheck(){
-        return isChild;
-    }
-
+    public double getBalance(){return balance;}
     /**
      * Setter for password
      * first checks to see if password is at least 8 characters
@@ -71,13 +71,6 @@ public class User {
      * accounts younger than 5 cannot be created
      */
     public void setAge(int age) {
-        if(age<5) {
-            System.out.println("You are too young to have an account");
-            return;
-        }
-        if(age<=16){
-            this.isChild = true;
-        }
         this.age = age;
     }
 
@@ -93,10 +86,17 @@ public class User {
      * Setter for phone number
      * type-casted long to String to make it easier to check the length
      */
-    public void setPhoneNumb(long number) {
-        if(Long.toString(number).length() > 0 && Long.toString(number).length() < 10){
+    public void setPhoneNumb(String number) {
+        if(number.length() > 0 && number.length() < 10){
             System.out.println("This is not a valid phone number");
             return;
+        }
+        for(int i=0; i<number.length(); i++){
+            if(Character.isDigit(number.charAt(i)) == false)
+            {
+                System.out.println("This is not a valid phone number.");
+                break;
+            }
         }
         this.phoneNumb = number;
     }
@@ -105,6 +105,37 @@ public class User {
      * toString method for every attribute in User
      */
     public String toString(){
-        return "Username: " + username + "\nPassword: " + password + "\nAge: " + age + "\nAddress: " + address +"\nPhone Number: " + phoneNumb+ "\nChild?: " + isChild;
+        return "Username: " + username + "\nPassword: " + password + "\nAge: " + age + "\nAddress: " + address +"\nPhone Number: " + phoneNumb + "\nAccount type: ";
+    }
+    //TODO comment
+    //TODO figure out due dates (each book has set amount of time, so maybe add current data as parameter?)
+    public void checkOut(Item item){
+        if(this.balance>100){
+            System.out.println("Too much in fines!!");
+            return;
+        }
+        int i =0;
+        while(i<items.length){
+            if(items[i] == null)
+                break;
+            i++;
+        }
+        if(items[i]==null)
+            items[i] = item;
+        else {
+            System.out.println("You can't checkout anymore books");
+        }
+        System.out.println("Due Data: TODO"); //TODO
+    }
+    public void payFine(double payment){
+        if(balance-payment<0){
+            System.out.println("You don't have to pay that much!");
+            return;
+        }
+        this.balance-=payment;
+    }
+    public void update(String test){}
+    public void writeReview(Item item, int rating, String review){
+        //TODO item.addRating(rating, review); //adds rating to items list
     }
 }
