@@ -2,6 +2,7 @@ public class Book extends Item{
     private String ISBN;
     private String publisher;
     private String author;
+    private String condition;
 
     /**
      * Parameterized Constructors
@@ -17,12 +18,12 @@ public class Book extends Item{
      * @param author
      */
     public Book(long id, String title,long year, String genre, long numCopies, boolean newArrival,
-                boolean isCheckedOut , String ISBN, String publisher, String author) {
+                boolean isCheckedOut , String ISBN, String publisher, String author, String condition) {
         super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
         this.setISBN(ISBN);
         this.setPublisher(publisher);
         this.setAuthor(author);
-
+        this.setCondition(condition);
     }
 
     /**
@@ -51,5 +52,13 @@ public class Book extends Item{
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

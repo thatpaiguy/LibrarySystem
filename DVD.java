@@ -1,6 +1,6 @@
 public class DVD extends Item {
     private String director;
-    private String actor;
+    private String actors;
 
     /**
      * Parameterized Constructor
@@ -12,13 +12,13 @@ public class DVD extends Item {
      * @param newArrival
      * @param isCheckedOut
      * @param director
-     * @param actor
+     * @param actors
      */
-    public DVD(int id, String title,int year, String genre, int numCopies, boolean newArrival,
-               boolean isCheckedOut, String director, String actor) {
+    public DVD(long id, String title, long year, String genre, long numCopies, boolean newArrival,
+               boolean isCheckedOut, String director, String actors) {
         super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
         this.setDirector(director);
-        this.setActor(actor);
+        this.setActor(actors);
 
     }
 
@@ -34,11 +34,11 @@ public class DVD extends Item {
         this.director = director;
     }
 
-    public String getActor() {
-        return actor;
+    public String getActors() {
+        return actors;
     }
 
     public void setActor(String actor) {
-        this.actor = actor;
+        this.actors = actor;
     }
 }

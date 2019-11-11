@@ -1,7 +1,8 @@
 public class Magazine extends Item{
     private String publisher;
-    private int volume;
-    private int issue;
+    private long volume;
+    private long issue;
+    private String condition;
 
     /**
      * Parameterized Constructor
@@ -16,12 +17,14 @@ public class Magazine extends Item{
      * @param volume
      * @param issue
      */
-    public Magazine(int id, String title,int year, String genre, int numCopies, boolean newArrival,
-                    boolean isCheckedOut, String publisher, int volume, int issue) {
+    public Magazine(long id, String title,long year, String genre, long numCopies, boolean newArrival,
+                    boolean isCheckedOut, String publisher, long volume, long issue, String condition) {
         super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
         this.setPublisher(publisher);
         this.setVolume(volume);
         this.setIssue(issue);
+        this.setCondition(condition);
+
     }
 
     /**
@@ -36,19 +39,27 @@ public class Magazine extends Item{
         this.publisher = publisher;
     }
 
-    public int getVolume() {
+    public long getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(long volume) {
         this.volume = volume;
     }
 
-    public int getIssue() {
+    public long getIssue() {
         return issue;
     }
 
-    public void setIssue(int issue) {
+    public void setIssue(long issue) {
         this.issue = issue;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

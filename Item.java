@@ -1,12 +1,14 @@
 public class Item {
 
-    public long id;
-    public String title;
-    public long year;
-    public String genre;
-    public long numCopies;
-    public boolean newArrival;
-    public boolean isCheckedOut;
+    protected long id;
+    protected String title;
+    protected long year;
+    protected String genre;
+    protected long numCopies;
+    protected boolean newArrival;
+    protected boolean isCheckedOut;
+    protected String[] waitlist;
+
 
     /**
      * Default constructor
@@ -19,6 +21,7 @@ public class Item {
         this.numCopies = 0;
         this.newArrival = false;
         this.isCheckedOut = false;
+        //this.waitlist[0] = "none";
     }
 
     /**
@@ -39,6 +42,7 @@ public class Item {
         this.setNumCopies(numCopies);
         this.setNewArrival(newArrival);
         this.setCheckedOut(isCheckedOut);
+        //this.setWaitlist(waitlist);
     }
 
     /**
@@ -100,4 +104,14 @@ public class Item {
     public void setCheckedOut(boolean checkedOut) {
         isCheckedOut = checkedOut;
     }
+
+    /*
+    public String[] getWaitlist() {
+        return waitlist;
+    }
+
+    public void setWaitlist(String[] waitlist) {
+        this.waitlist = waitlist;
+    }
+     */
 }
