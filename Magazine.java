@@ -1,7 +1,7 @@
 public class Magazine extends Item{
     private String publisher;
-    private long volume;
-    private long issue;
+    private String volume;
+    private String issue;
     private String condition;
 
     /**
@@ -17,9 +17,9 @@ public class Magazine extends Item{
      * @param volume
      * @param issue
      */
-    public Magazine(long id, String title,long year, String genre, long numCopies, boolean newArrival,
-                    boolean isCheckedOut, String publisher, long volume, long issue, String condition) {
-        super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
+    public Magazine(String id, String title,String year, String genre, long numCopies, boolean newArrival, boolean isCheckedOut,
+                    String publisher, String volume, String issue, String condition, boolean matureRating,long dueDate) {
+        super(id, title, year, genre, numCopies, newArrival, isCheckedOut,matureRating,dueDate);
         this.setPublisher(publisher);
         this.setVolume(volume);
         this.setIssue(issue);
@@ -39,19 +39,19 @@ public class Magazine extends Item{
         this.publisher = publisher;
     }
 
-    public long getVolume() {
+    public String getVolume() {
         return volume;
     }
 
-    public void setVolume(long volume) {
+    public void setVolume(String volume) {
         this.volume = volume;
     }
 
-    public long getIssue() {
+    public String getIssue() {
         return issue;
     }
 
-    public void setIssue(long issue) {
+    public void setIssue(String issue) {
         this.issue = issue;
     }
 

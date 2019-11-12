@@ -14,9 +14,9 @@ public class DVD extends Item {
      * @param director
      * @param actors
      */
-    public DVD(long id, String title, long year, String genre, long numCopies, boolean newArrival,
-               boolean isCheckedOut, String director, String actors) {
-        super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
+    public DVD(String id, String title, String year, String genre, long numCopies, boolean newArrival,
+               boolean isCheckedOut, String director, String actors,boolean matureRating,long dueDate) {
+        super(id, title, year, genre, numCopies, newArrival, isCheckedOut,matureRating,dueDate);
         this.setDirector(director);
         this.setActor(actors);
 

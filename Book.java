@@ -17,9 +17,9 @@ public class Book extends Item{
      * @param publisher
      * @param author
      */
-    public Book(long id, String title,long year, String genre, long numCopies, boolean newArrival,
-                boolean isCheckedOut , String ISBN, String publisher, String author, String condition) {
-        super(id, title, year, genre, numCopies, newArrival, isCheckedOut);
+    public Book(String id, String title,String year, String genre, long numCopies, boolean newArrival, boolean isCheckedOut,
+                String ISBN, String publisher, String author, String condition, boolean matureRating, long dueDate) {
+        super(id, title, year, genre, numCopies, newArrival, isCheckedOut, matureRating,dueDate);
         this.setISBN(ISBN);
         this.setPublisher(publisher);
         this.setAuthor(author);

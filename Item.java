@@ -1,28 +1,18 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Item {
 
-    protected long id;
+    protected String id;
     protected String title;
-    protected long year;
+    protected String year;
     protected String genre;
     protected long numCopies;
     protected boolean newArrival;
     protected boolean isCheckedOut;
-    protected String[] waitlist;
-
-
-    /**
-     * Default constructor
-     */
-    public Item() {
-        this.id = 0;
-        this.title = "none";
-        this.year = 0;
-        this.genre = "none";
-        this.numCopies = 0;
-        this.newArrival = false;
-        this.isCheckedOut = false;
-        //this.waitlist[0] = "none";
-    }
+    protected boolean matureRating;
+    protected long dueDate;
+    protected Queue waitlist = new LinkedList<User>();
 
     /**
      * parameterized constructor
@@ -34,7 +24,8 @@ public class Item {
      * @param newArrival
      * @param isCheckedOut
      */
-    public Item(long id, String title, long year, String genre, long numCopies, boolean newArrival, boolean isCheckedOut) {
+    public Item(String id, String title, String year, String genre, long numCopies, boolean newArrival,
+                boolean isCheckedOut, boolean matureRating, long dueDate) {
         this.setId(id);
         this.setTitle(title);
         this.setYear(year);
@@ -42,18 +33,20 @@ public class Item {
         this.setNumCopies(numCopies);
         this.setNewArrival(newArrival);
         this.setCheckedOut(isCheckedOut);
-        //this.setWaitlist(waitlist);
+        this.setMatureRating(matureRating);
+        waitlist = new LinkedList<User>();
+        this.setDueDate(dueDate);
     }
 
     /**
      * Getters and Setters
      * @return
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,11 +58,11 @@ public class Item {
         this.title = title;
     }
 
-    public long getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -105,13 +98,36 @@ public class Item {
         isCheckedOut = checkedOut;
     }
 
-    /*
-    public String[] getWaitlist() {
-        return waitlist;
+    public boolean isMatureRating() {
+        return matureRating;
     }
 
-    public void setWaitlist(String[] waitlist) {
-        this.waitlist = waitlist;
+    public void setMatureRating(boolean matureRating) {
+        this.matureRating = matureRating;
     }
-     */
+
+    public long getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(long dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void addUser(User user) {
+        if(waitlist.contains(user)) {
+            System.out.println("User already on wait list.");
+            return;
+        }
+        waitlist.add(user);
+    }
+
+    public void removeUser(User user) {
+        if(waitlist.contains(user)) {
+            waitlist.remove(user);
+        }
+        else {
+            System.out.println("This user is not on the wait list.");
+        }
+    }
 }

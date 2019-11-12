@@ -26,19 +26,21 @@ public class JSONParse {
 
             for(int i = 0; i < magsJSON.size(); i++) {
                 JSONObject magJSON = (JSONObject)magsJSON.get(i);
-                long id = (long)magJSON.get("id");
+                String id = (String)magJSON.get("id");
                 String title = (String)magJSON.get("title");
-                long year = (long)magJSON.get("year");
+                String year = (String)magJSON.get("year");
                 String genre = (String)magJSON.get("genre");
                 String publisher = (String)magJSON.get("publisher");
-                long volume = (long)magJSON.get("volume");
-                long issue = (long)magJSON.get("issue");
+                String volume = (String)magJSON.get("volume");
+                String issue = (String)magJSON.get("issue");
                 long numCopies = (long)magJSON.get("numCopies");
                 boolean newArrival = (boolean)magJSON.get("newArrival");
                 boolean isCheckedOut = (boolean)magJSON.get("isCheckedOut");
                 String condition = (String)magJSON.get("condition");
+                boolean mRating = (boolean) magJSON.get("matureRating");
+                long dDate = (long)magJSON.get("dueDate");
 
-                mags.add(new Magazine(id,title,year,genre,numCopies,newArrival,isCheckedOut,publisher,volume,issue, condition));
+                mags.add(new Magazine(id,title,year,genre,numCopies,newArrival,isCheckedOut,publisher,volume,issue, condition,mRating,dDate));
             }
             return mags;
         } catch (Exception e) {
@@ -63,19 +65,19 @@ public class JSONParse {
 
                 for(int i = 0; i < dvdsJSON.size(); i++) {
                     JSONObject dvdJSON = (JSONObject)dvdsJSON.get(i);
-                    long id = (long)dvdJSON.get("id");
+                    String id = (String)dvdJSON.get("id");
                     String title = (String)dvdJSON.get("title");
-                    long year = (long)dvdJSON.get("year");
+                    String year = (String)dvdJSON.get("year");
                     String genre = (String)dvdJSON.get("genre");
                     String director = (String)dvdJSON.get("director");
                     String actors = (String)dvdJSON.get("actors");
                     long numCopies = (long)dvdJSON.get("numCopies");
                     boolean newArrival = (boolean)dvdJSON.get("newArrival");
                     boolean isCheckedOut = (boolean)dvdJSON.get("isCheckedOut");
+                    boolean mRating = (boolean)dvdJSON.get("matureRating");
+                    long dDate = (long)dvdJSON.get("dueDate");
 
-
-
-                    dvds.add(new DVD(id, title,year,genre,numCopies,newArrival,isCheckedOut, director,actors));
+                    dvds.add(new DVD(id, title,year,genre,numCopies,newArrival,isCheckedOut, director,actors,mRating,dDate));
                 }
                 return dvds;
 
@@ -102,9 +104,9 @@ public class JSONParse {
 
                 for(int i = 0; i < booksJSON.size(); i++) {
                     JSONObject bookJSON = (JSONObject)booksJSON.get(i);
-                    long id = (long)bookJSON.get("id");
+                    String id = (String)bookJSON.get("id");
                     String title = (String)bookJSON.get("title");
-                    long year = (long)bookJSON.get("year");
+                    String year = (String)bookJSON.get("year");
                     String genre = (String)bookJSON.get("genre");
                     String ISBN = (String)bookJSON.get("ISBN");
                     String publisher = (String)bookJSON.get("publisher");
@@ -113,11 +115,11 @@ public class JSONParse {
                     boolean newArrival = (boolean)bookJSON.get("newArrival");
                     boolean isCheckedOut = (boolean)bookJSON.get("isCheckedOut");
                     String condition = (String)bookJSON.get("condition");
-
-
+                    boolean mRating = (boolean)bookJSON.get("matureRating");
+                    long dDate = (long)bookJSON.get("dueDate");
 
                     books.add(new Book(id, title, year, genre, numCopies, newArrival, isCheckedOut, ISBN, publisher,
-                        author,condition));
+                        author,condition,mRating,dDate));
                 }
                 return books;
         } catch (Exception e) {
