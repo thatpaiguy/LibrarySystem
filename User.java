@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public abstract class User{
     protected String username;
     protected String password;
@@ -18,8 +20,10 @@ public abstract class User{
         this.setAge(age);
         this.setAddress(address);
         this.setPhoneNumb(phoneNumb);
+        this.items = new Item[10];
         balance =0;
     }
+    public User(){}
     /**
      * Getters
      */
@@ -108,8 +112,12 @@ public abstract class User{
         return "Username: " + username + "\nPassword: " + password + "\nAge: " + age + "\nAddress: " + address +"\nPhone Number: " + phoneNumb + "\nAccount type: ";
     }
     //TODO comment
-    //TODO figure out due dates (each book has set amount of time, so maybe add current data as parameter?)
     public void checkOut(Item item){
+        if(item.getNumCopies() ==0) {
+            item.addUser(this);
+            System.out.println("You have been added to the waitlist for " + item.getTitle());
+            return;
+        }
         if(this.balance>100){
             System.out.println("Too much in fines!!");
             return;
@@ -120,22 +128,42 @@ public abstract class User{
                 break;
             i++;
         }
-        if(items[i]==null)
+        if(items[i]==null) {
             items[i] = item;
+            item.setNumCopies(item.getNumCopies()-1);
+        }
+
         else {
             System.out.println("You can't checkout anymore books");
         }
-        System.out.println("Due Data: TODO"); //TODO
+        System.out.println("Due Data: " + item.getDueDate()); //TODO
     }
     public void payFine(double payment){
-        if(balance-payment<0){
+        if(payment>balance){
             System.out.println("You don't have to pay that much!");
             return;
         }
         this.balance-=payment;
     }
+    public void notifyObservers(LinkedList<User> list, String alert){}
+    public void addBalance(double i){
+        balance +=i;
+    }
     public void update(String test){}
     public void writeReview(Item item, int rating, String review){
-        //TODO item.addRating(rating, review); //adds rating to items list
+        Rating newRating = new Rating(rating,review);
+        item.addRating(newRating); //adds rating to items list
+    }
+    public void viewRatings(Item item){
+        item.getRatingList().toString();
+    }
+    public String getType(){
+        return null;
+    }
+    public Item getItems(int i){
+        return items[i];
+    }
+    public int itemSize(){
+        return items.length;
     }
 }
