@@ -6,7 +6,7 @@ public abstract class User{
     protected int age;
     protected String address;
     protected String phoneNumb;
-    protected Item[] items;
+    protected LinkedList<Item> items;
     protected double balance;
     /**
      * Parameterized constructor
@@ -20,7 +20,6 @@ public abstract class User{
         this.setAge(age);
         this.setAddress(address);
         this.setPhoneNumb(phoneNumb);
-        this.items = new Item[10];
         balance =0;
     }
     public User(){}
@@ -113,29 +112,21 @@ public abstract class User{
     }
     //TODO comment
     public void checkOut(Item item){
-        if(item.getNumCopies() ==0) {
+        if(item.getNumCopies() == 0) {
+            System.out.println("You have been added to the wait list for " + item.getTitle());
             item.addUser(this);
-            System.out.println("You have been added to the waitlist for " + item.getTitle());
             return;
         }
         if(this.balance>100){
             System.out.println("Too much in fines!!");
             return;
         }
-        int i =0;
-        while(i<items.length){
-            if(items[i] == null)
-                break;
-            i++;
+        if(items.size() >= 10){
+            System.out.println("You cannot check out any more items");
+            return;
         }
-        if(items[i]==null) {
-            items[i] = item;
-            item.setNumCopies(item.getNumCopies()-1);
-        }
-
-        else {
-            System.out.println("You can't checkout anymore books");
-        }
+        items.add(item);
+        item.setNumCopies(item.getNumCopies()-1);
         System.out.println("Due Data: " + item.getDueDate()); //TODO
     }
     public void payFine(double payment){
@@ -161,9 +152,9 @@ public abstract class User{
         return null;
     }
     public Item getItems(int i){
-        return items[i];
+        return items.get(i);
     }
     public int itemSize(){
-        return items.length;
+        return items.size();
     }
 }

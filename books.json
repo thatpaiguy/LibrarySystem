@@ -1,0 +1,59 @@
+{"books":[
+  {
+  	"id":"1",
+  	"title":"The Cat in the Hat",
+  	"year":"1957",
+    "genre": "Children",
+    "ISBN":"039480001X",
+    "publisher":"Random House",
+    "author":"Dr. Seuss",
+    "numCopies":3,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "condition": "poor",
+    "matureRating": false,
+    "dueDate":30
+  },{
+    "id":"2",
+    "title":"Hitchhiker's Guide to the Galaxy",
+    "year":"2000",
+    "genre": "Children",
+    "ISBN":"9780761119753",
+    "publisher":"Workman",
+    "author":"Sandra Boynton",
+    "numCopies":2,
+    "newArrival":true,
+    "isCheckedOut": false,
+    "condition": "great",
+    "matureRating": false,
+    "dueDate": 30
+  },{
+    "id":"3",
+    "title":"To Kill a Mockingbird",
+    "year":"1813",
+    "genre":"Women's Fiction",
+    "ISBN":"1503290565",
+    "publisher":"CreateSpace",
+    "author":"Jane Austin",
+    "numCopies":0,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "condition": "good",
+    "matureRating": true,
+    "dueDate": 30
+  },{
+    "id":"4",
+    "title":"Gone With the Wind",
+    "year":"1936",
+    "genre": "Historical Fiction",
+    "ISBN":"1451635621",
+    "publisher":"Scribner",
+    "author":"Margaret Mitchell",
+    "numCopies":2,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "condition": "good",
+    "matureRating": false,
+    "dueDate": 30
+  }
+]}

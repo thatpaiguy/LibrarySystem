@@ -121,7 +121,8 @@ public class Item {
             System.out.println("User already on wait list.");
             return;
         }
-        waitlist.add(user);
+        waitlist.add(user.getUsername());
+
     }
 
     public void removeUser(User user) {

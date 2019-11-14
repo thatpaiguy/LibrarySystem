@@ -45,7 +45,7 @@ public class MainMethod {
                         boolean teach = keyboard.nextBoolean();
                         userDB.add(new Adult(name, pw, age, addy, number, teach));
                     }
-                    break;
+                    //break;
                 case 2:
                     User account = new Adult();
                     System.out.println("Enter your username and password");
@@ -55,34 +55,35 @@ public class MainMethod {
                     for (int i = 0; i < userDB.size(); i++) {
                         if (userDB.get(i).getUsername().equals(lName) && userDB.get(i).getPassword().equals(lpw)) {
                             account = userDB.get(i);
+                            System.out.println("Hey " + userDB.get(i).getUsername()+"!");
                             break;
                         }
                     }
 
                     boolean quit2 = false;
                     while (!quit2) {
-                        System.out.println("Would you like to check out a book (1), pay fines (2), or log out (3)");
+                        System.out.println("Would you like to check out a book, DVD, or Magazine (1), pay fines (2), or log out (3)");
                         if (account.getType().equals("Librarian"))
                             System.out.println("\nOr Librarian functions: \nAdd book (6) \nRemove Book (7) \nAlert user (8)");
                         switch (keyboard.nextInt()) {
                             case 1:
-                                System.out.println("Enter the name of the book you want");
-                                String title = keyboard.nextLine();
+                                System.out.println("Enter the name of the book, DVD, or Magazine you want");
                                 keyboard.nextLine();
+                                String title = keyboard.nextLine();
                                 for (int i = 0; i < itemDB.size(); i++) {
                                     if (itemDB.get(i).getTitle().equals(title)) {
                                         account.checkOut(itemDB.get(i));
+                                        break;
                                     }
                                 }
-                                System.out.println("Successfully checked out!");
                                 break;
                             case 2://TODO
-                                /*for (int i = 0; i < account.itemSize(); i++) {
+                                for (int i = 0; i < account.itemSize(); i++) {
                                     System.out.println("How many days have you had " + account.getItems(i).getTitle());
                                     int days = keyboard.nextInt();
                                     if (days > account.getItems(i).getDueDate())
                                         account.addBalance(days * .01);
-                                }*/
+                                }
                                 System.out.println("Your balance is " + account.getBalance() + "\nHow much would you like to pay?");
                                 account.payFine(keyboard.nextDouble());
                                 break;

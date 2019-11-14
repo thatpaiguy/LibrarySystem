@@ -1,9 +1,9 @@
 public class Adult extends User{
     private boolean isTeacher;
+    public Adult(){}
     public Adult(String userName, String password, int age, String address, String phoneNumb, boolean isTeacher){
         super(userName, password, age, address, phoneNumb);
         this.setTeacher(isTeacher);
-        this.items = new Item[10];
     }
     public void setTeacher(boolean bool){
         this.isTeacher = bool;
@@ -14,5 +14,31 @@ public class Adult extends User{
 
     public void update(String update) {
         System.out.println(update+" for Adult");
+    }
+    public String getType(){
+        return "Adult";
+    }
+    public void checkOut(Item item){
+        if(item.getNumCopies() == 0) {
+            System.out.println("You have been added to the wait list for " + item.getTitle());
+            item.addUser(this);
+            return;
+        }
+        if(this.balance>100){
+            System.out.println("Too much in fines!!");
+            return;
+        }
+        if(items.size() >= 10 && !isTeacher){
+            System.out.println("You cannot check out any more items");
+            return;
+        }
+        if(items.size() >= 50 && isTeacher){
+            System.out.println("You cannot check out any more items");
+            return;
+        }
+        items.add(item);
+        item.setNumCopies(item.getNumCopies()-1);
+        System.out.println("Due Data: " + item.getDueDate()); //TODO
+
     }
 }
