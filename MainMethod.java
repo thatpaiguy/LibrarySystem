@@ -10,6 +10,9 @@ public class MainMethod {
         for (Book book : itemConnect.getBookList()) itemDB.add(book);
         for (Magazine magazine : itemConnect.getMagList()) itemDB.add(magazine);
         for (DVD dvd : itemConnect.getDvdList()) itemDB.add(dvd);
+        double newStars = 4.5;
+        String newRating1 = "I absolutely adore this book. Almost five stars :)";
+        Rating startRating = new Rating(newStars,newRating1);
         boolean quit = false;
         Librarian librarian = new Librarian("shelly", "p@ssw0rd", 20, "Tcoop", "1234567890");
         userDB.add(librarian);
@@ -62,7 +65,7 @@ public class MainMethod {
 
                     boolean quit2 = false;
                     while (!quit2) {
-                        System.out.println("Would you like to check out a book, DVD, or Magazine (1), pay fines (2), or log out (3)");
+                        System.out.println("Would you like to check out a book, DVD, or Magazine (1), pay fines (2), leave a rating (3), or log out (4)");
                         if (account.getType().equals("Librarian"))
                             System.out.println("\nOr Librarian functions: \nAdd book (6) \nRemove Book (7) \nAlert user (8)");
                         switch (keyboard.nextInt()) {
@@ -78,12 +81,12 @@ public class MainMethod {
                                 }
                                 break;
                             case 2://TODO
-                                for (int i = 0; i < account.itemSize(); i++) {
+                                /*for (int i = 0; i < account.itemSize(); i++) {
                                     System.out.println("How many days have you had " + account.getItems(i).getTitle());
                                     int days = keyboard.nextInt();
                                     if (days > account.getItems(i).getDueDate())
                                         account.addBalance(days * .01);
-                                }
+                                }*/
                                 System.out.println("Your balance is " + account.getBalance() + "\nHow much would you like to pay?");
                                 account.payFine(keyboard.nextDouble());
                                 break;
@@ -159,6 +162,38 @@ public class MainMethod {
                                 account.notifyObservers(userDB, message);
                                 break;
                             case 3:
+                                System.out.println("Would you like to see ratings (1) or leave a rating (2)?");
+                                int viewRating = keyboard.nextInt();
+                                switch(viewRating) {
+                                    case 1:
+                                        System.out.println("What book would you like to see a rating and review for?");
+                                        String bookRate = keyboard.nextLine();
+                                        keyboard.nextLine();
+                                        for (int i = 0; i < itemDB.size(); i++) {
+                                            if (itemDB.get(i).getTitle().equals(bookRate)) {
+                                                itemDB.get(i).addRating(startRating);
+                                                itemDB.get(i).getRatingList().toString();
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("What book would you like to leave a rating for?");
+                                        String bookName = keyboard.nextLine();
+                                        keyboard.nextLine();
+                                        System.out.println("Enter a rating of 1-5 stars");
+                                        double stars = keyboard.nextDouble();
+                                        System.out.println("Enter your review below");
+                                        String review = keyboard.nextLine();
+                                        keyboard.nextLine();
+                                        Rating newRating = new Rating(stars, review);
+                                        for (int i = 0; i < itemDB.size(); i++) {
+                                            if (itemDB.get(i).getTitle().equals(bookName)) {
+                                                itemDB.get(i).addRating(newRating);
+                                            }
+                                        }
+                                }
+                                break;
+                            case 4:
                                 System.out.println("Logging out...");
                                 quit2 = true;
                                 break;

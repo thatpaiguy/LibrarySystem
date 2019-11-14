@@ -6,4 +6,5 @@ public class Rating {
             this.stars = aStars;
         this.rating = aRating;
     }
+
 }

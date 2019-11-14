@@ -20,7 +20,7 @@ public class Adult extends User{
     }
     public void checkOut(Item item){
         if(item.getNumCopies() == 0) {
-            System.out.println("You have been added to the wait list for " + item.getTitle());
+            System.out.println("There are no more copies.\nYou have been added to the wait list for " + item.getTitle()+"\n");
             item.addUser(this);
             return;
         }
@@ -28,17 +28,21 @@ public class Adult extends User{
             System.out.println("Too much in fines!!");
             return;
         }
+        if(item == null) {
+            throw new IllegalArgumentException("The argument cannot be null");
+
+        }
         if(items.size() >= 10 && !isTeacher){
             System.out.println("You cannot check out any more items");
             return;
         }
-        if(items.size() >= 50 && isTeacher){
+        if(items.size() >= 50){
             System.out.println("You cannot check out any more items");
             return;
         }
         items.add(item);
         item.setNumCopies(item.getNumCopies()-1);
-        System.out.println("Due Data: " + item.getDueDate()); //TODO
+        System.out.println("Due Data: " + item.getDueDate());
 
     }
 }
