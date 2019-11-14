@@ -1,0 +1,51 @@
+{"dvds":[
+  {
+  	"id":"9",
+  	"title":"Dante's Peak",
+  	"year":"1986",
+    "genre": "Action",
+    "director":"Tony Scott",
+    "actors":"Tom Cruise",
+    "numCopies":2,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "matureRating": true,
+    "dueDate": 7
+  },{
+  	"id":"10",
+  	"title":"Frozen",
+  	"year":"2013",
+    "genre": "Children",
+    "director":"Chris Buck",
+    "actors": "Kristen Bell",
+    "numCopies":3,
+    "newArrival":true,
+    "isCheckedOut": false,
+    "matureRating": false,
+    "dueDate": 7
+  },{
+  	"id":"11",
+  	"title":"The Notebook",
+  	"year":"2008",
+    "genre": "Romance",
+    "director":"Nick Cassavetes",
+    "actors": "Rachel McAdams",
+    "numCopies":1,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "matureRating": false,
+    "dueDate": 7
+  },{
+  	"id":"12",
+  	"title":"Wedding Crashers",
+  	"year":"2005",
+    "genre": "Comedy",
+    "director":"David Dobkin",
+    "actors": "Owen Wilson",
+    "numCopies":2,
+    "newArrival":false,
+    "isCheckedOut": false,
+    "matureRating": false,
+    "dueDate": 7
+  }
+]}
