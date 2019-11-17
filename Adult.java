@@ -1,6 +1,6 @@
 public class Adult extends User{
     private boolean isTeacher;
-    public Adult(){}
+    public Adult(){super();}
     public Adult(String userName, String password, int age, String address, String phoneNumb, boolean isTeacher){
         super(userName, password, age, address, phoneNumb);
         this.setTeacher(isTeacher);
@@ -32,7 +32,7 @@ public class Adult extends User{
             throw new IllegalArgumentException("The argument cannot be null");
 
         }
-        if(items.size() >= 10 && !isTeacher){
+        if(items != null && items.size() >= 10 && !isTeacher){
             System.out.println("You cannot check out any more items");
             return;
         }

@@ -6,7 +6,7 @@ public abstract class User{
     protected int age;
     protected String address;
     protected String phoneNumb;
-    protected LinkedList<Item> items;
+    protected LinkedList<Item> items = new LinkedList<Item>();
     protected double balance;
     /**
      * Parameterized constructor
@@ -22,7 +22,8 @@ public abstract class User{
         this.setPhoneNumb(phoneNumb);
         balance =0;
     }
-    public User(){}
+    public User(){
+    }
     /**
      * Getters
      */
@@ -127,7 +128,7 @@ public abstract class User{
         }
         items.add(item);
         item.setNumCopies(item.getNumCopies()-1);
-        System.out.println("Due Data: " + item.getDueDate()); //TODO
+        System.out.println("Due Data: " + item.getDueDate() + " days.");
     }
     public void payFine(double payment){
         if(payment>balance){

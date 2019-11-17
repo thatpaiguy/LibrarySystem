@@ -81,12 +81,12 @@ public class MainMethod {
                                 }
                                 break;
                             case 2://TODO
-                                /*for (int i = 0; i < account.itemSize(); i++) {
+                                for (int i = 0; i < account.itemSize(); i++) {
                                     System.out.println("How many days have you had " + account.getItems(i).getTitle());
                                     int days = keyboard.nextInt();
                                     if (days > account.getItems(i).getDueDate())
                                         account.addBalance(days * .01);
-                                }*/
+                                }
                                 System.out.println("Your balance is " + account.getBalance() + "\nHow much would you like to pay?");
                                 account.payFine(keyboard.nextDouble());
                                 break;
